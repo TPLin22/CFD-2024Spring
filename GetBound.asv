@@ -1,0 +1,20 @@
+function [q_b] = GetBound(q)
+
+q_b = q;
+% phr change
+%r0(:,:) = 1.185;
+%u0(:,:) = 0;
+%v0(:,:) = 99719;
+%p0(:,:) = 686.47;
+
+rho=q(:,:,1).*jacob(:,:); 
+u=q(:,:,2)./rho.*jacob(:,:); 
+v=q(:,:,3)./rho.*jacob(:,:); 
+E=q(:,:,4)./rho.*jacob(:,:);
+p=(gamma-1)*rho.*(E-0.5*(u.^2 + v.^2));
+
+rho_b = rho;
+u_b = u;
+v_b = v;
+E_b = E;
+p_b = p;
